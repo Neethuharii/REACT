@@ -1,14 +1,9 @@
-import React, { useState } from 'react';
+// Products.jsx
+import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import './Products.css';
 
-const Products = ({ products }) => {
-  const [cart, setCart] = useState([]);
-
-  const addToCart = (product) => {
-    setCart(prevCart => [...prevCart, product]);
-  };
-
+const Products = ({ products, addToCart }) => {  /* Receive addToCart function as prop*/
   return (
     <div className="products">
       <h2>Products</h2>
@@ -24,7 +19,10 @@ const Products = ({ products }) => {
               <Card.Text>
                 Price: {product.price}
               </Card.Text>
-              <Button onClick={() => addToCart(product)} variant="primary">Add to Cart</Button>
+
+              {/*------------------------ Add to Cart BUtton -----------------------*/}
+              
+              <Button variant="primary" onClick={() => addToCart(product)}>Add to Cart</Button> 
             </Card.Body>
           </Card>
         ))}
@@ -34,3 +32,4 @@ const Products = ({ products }) => {
 };
 
 export default Products;
+
