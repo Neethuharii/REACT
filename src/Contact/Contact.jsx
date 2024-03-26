@@ -22,14 +22,14 @@ function ContactForm() {
         <div className='contact'>
             <h2>Contact Form</h2>
             <form>
-              
+
                 <label>
                     Name:
                     <input type="text" name="name" value={formData.name} onChange={handleChange}
                     />
                     <p>You typed: {formData.name}</p>
                 </label>
-                
+
                 <label>
                     Email:
                     <input type="email" name="email" value={formData.email} onChange={handleChange}

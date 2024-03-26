@@ -1,9 +1,20 @@
-// Products.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, Button } from 'react-bootstrap';
 import './Products.css';
 
-const Products = ({ products, addToCart }) => {  /* Receive addToCart function as prop*/
+const Products = ({ products, addToCart }) => {
+
+  const [selectedCounts, setSelectedCounts] = useState(1);
+
+  // Function to handle changes in item count selection
+  const handleSelectChange =(e)=>{
+    const counts = e.target.value
+    setSelectedCounts(counts);
+    console.log(counts)
+  }
+
+
+
   return (
     <div className="products">
       <h2>Products</h2>
@@ -20,9 +31,18 @@ const Products = ({ products, addToCart }) => {  /* Receive addToCart function a
                 Price: {product.price}
               </Card.Text>
 
-              {/*------------------------ Add to Cart BUtton -----------------------*/}
-              
-              <Button variant="primary" onClick={() => addToCart(product)}>Add to Cart</Button> 
+              {/* Select box for item count */}
+              <select id='select-box' onChange={handleSelectChange}>
+                <option value={1}>1</option>
+                <option value={2}>2</option>
+                <option value={3}>3</option>
+                <option value={4}>4</option>
+                <option value={5}>5</option>
+                
+              </select>
+
+              {/* Add to Cart button with selected item count */}
+              <Button variant="primary" onClick={() => addToCart(product, selectedCounts)}>Add to Cart</Button>
             </Card.Body>
           </Card>
         ))}
@@ -32,4 +52,5 @@ const Products = ({ products, addToCart }) => {  /* Receive addToCart function a
 };
 
 export default Products;
+
 
