@@ -11,7 +11,7 @@ ul {
 /* Header.css */
 
 header {
-    background-color: #333;
+   background-color: rgb(183, 235, 235);
     color: #fff;
     padding: 10px 20px;
   }
@@ -38,4 +38,7 @@ header {
     text-decoration: none;
     padding: 10px;
   }
-  
+  .cart-icon{
+    color: black;
+    padding: 6px;
+  }

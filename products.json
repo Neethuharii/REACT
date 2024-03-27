@@ -1,0 +1,7 @@
+{"products":[
+    {"id":1,"image": "bag r.jpg" ,"title":"Bag", "description":"Leather Bag"},
+    {"id":2,"image": "shoe r.jpg" ,"title":"Shoe", "description":"White Shoe"},
+    {"id":3,"image": "book r.jpg" ,"title":"Book", "description":"Novel"}
+]
+}
+

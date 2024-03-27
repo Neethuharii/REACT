@@ -1,49 +1,38 @@
-
 import React from 'react';
-import { Card, Button } from 'react-bootstrap';
-import './viewcart.css'
+import { useCart } from '../cartContext';
 
-const ViewCart = ({ cart,count,removeFromCart}) => {
-
-
-  /**===================================================================================
-   * 
-   * @param {*} productId
-   *  Function to remove product from cart 
-   ===================================================================================*/
-  
+const ViewCart = () => {
+  // Retrieve cart state from the cartContext
+  const { cart, count, removeFromCart } = useCart();
 
   return (
-    <>
-    <h2>Your Cart</h2>
-      <p>Count:{count}</p>
-    <div >
-      
-
-    {/*-------------------- checking if the cart is empty or not ------------------------- */}
-      {cart.length === 0 ? (
-        <p>Your cart is empty</p>
-      ) : (
-        <div className='view-cart-container'>
-          {cart.map(item => (
-            <Card key={item.id} style={{ width: '18rem' }}>
-              <Card.Body>
-              <Card.Img variant="top" src={item.image} alt={item.name} />
-                <Card.Title>{item.name}</Card.Title>
-                <Card.Text>
-                  Price: {item.price}
-                </Card.Text>
-                <Card.Text>
-                  Quantity: {item.quantity}
-                </Card.Text>
-                <Button variant="danger" onClick={() => removeFromCart(item.id)}>Delete</Button> 
-              </Card.Body>
-            </Card>
-          ))}
-        </div>
-      )}
+    <div className="container">
+      <h2>Your Cart</h2>
+      <p>Count: {count}</p>
+      <div className="row">
+        {/* Check if cart is empty */}
+        {cart.length === 0 ? (
+          <p>Your cart is empty</p>
+        ) : (
+          // Map through cart items and display them
+          cart.map(item => (
+            <div key={item.id} className="col-md-4 mb-3">
+              <div className="card">
+                <img src={item.image} className="card-img-top" alt={item.name} />
+                <div className="card-body">
+                  <h5 className="card-title">{item.name}</h5>
+                  <p className="card-text">Price: {item.price}</p>
+                  <p className="card-text">Quantity: {item.quantity}</p>
+                  <button className="btn btn-danger" onClick={() => removeFromCart(item.id)}>
+                    Remove
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))
+        )}
+      </div>
     </div>
-    </>
   );
 };
 
