@@ -75,13 +75,13 @@ export const CartProvider = ({ children }) => {
   
     
     // /*------------------------------- Array of Object ----------------------------*/
-    const products = [
-      { id: 1, image: 'bag r.jpg', name: 'Bag', price: '$10', description: 'leather bag' },
-      { id: 2, image: 'book r.jpg', name: 'Book', price: '$30', description: 'novel' },
-      { id: 3, image: 'book r.jpg', name: 'book2', price: '$15', description: 'Story' },
-    ];
+    // const products = [
+    //   { id: 1, image: 'bag r.jpg', name: 'Bag', price: '$10', description: 'leather bag' },
+    //   { id: 2, image: 'book r.jpg', name: 'Book', price: '$30', description: 'novel' },
+    //   { id: 3, image: 'book r.jpg', name: 'book2', price: '$15', description: 'Story' },
+    // ];
       return (
-        <CartContext.Provider value={{ products,addToCart,cart,removeFromCart,count }}>
+        <CartContext.Provider value={{  addToCart,cart,removeFromCart,count }}>
           {children}
         </CartContext.Provider>
       );
